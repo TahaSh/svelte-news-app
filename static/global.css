@@ -1,0 +1,538 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 0.5em 0;
+	font-weight: 400;
+	line-height: 1.2;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+a {
+	color: inherit;
+}
+
+code {
+	font-family: menlo, inconsolata, monospace;
+	font-size: calc(1em - 2px);
+	color: #555;
+	background-color: #f0f0f0;
+	padding: 0.2em 0.4em;
+	border-radius: 2px;
+}
+
+.navbar {
+	background: hsl(15, 100%, 50%);
+	padding: 10px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.navbar .logo {
+	font-size: 22px;
+	font-weight: 500;
+	color: #FFF;
+	text-decoration: none;
+}
+
+.navbar .username {
+	color: #FFF;
+}
+
+.logout-button {
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.logout-button:before {
+	content: '(';
+	font-weight: 400;
+}
+
+.logout-button:after {
+	content: ')';
+	font-weight: 400;
+}
+
+.navbar .primary-button.new-story-button {
+	color: hsl(15, 100%, 55%);
+	background: hsl(15, 100%, 98%);
+	text-decoration: none;
+	padding: 5px 10px;
+	margin-left: 10px;
+	box-shadow: 0 1px 3px hsla(15, 100%, 10%, 30%);
+}
+
+.navbar .primary-button.new-story-button:hover {
+	background: hsl(15, 100%, 95%);
+}
+
+.navbar-link {
+	margin-left: 10px;
+	text-decoration: none;
+	color: #FFF;
+}
+
+.page {
+  max-width: 800px;
+  width: calc(100% - 20px);
+  margin: 20px auto;
+}
+
+.story-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.story-item {
+	display: flex;
+	align-items: flex-start;
+}
+
+.story-list .story-item + .story-item {
+	margin-top: 20px;
+}
+
+.story-item .byline {
+	display: flex;
+	color: #666;
+}
+
+.story-item .details {
+	display: flex;
+	align-items: center;
+}
+
+.story-item .title {
+	font-size: 16px;
+	margin: 0;
+	color: hsl(15, 100%, 1%);
+	text-decoration: none;
+}
+
+.story-item .domain {
+	background: hsl(15, 70%, 90%);
+	padding: 1px 7px;
+	border-radius: 23px;
+	font-size: 11px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 8px;
+}
+
+.voter {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0 10px;
+	margin-top: 3px;
+}
+
+.voter .score {
+	font-size: 14px;
+	color: #888;
+}
+
+.voter .upvoter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  cursor: pointer;
+  padding: 3px 2px;
+}
+
+.voter .upvoter .arrow {
+	width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 9px solid #888;
+}
+
+.voter .upvoter:hover .arrow {
+	border-bottom: 9px solid hsl(15, 100%, 50%);
+}
+
+.comment-form {
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+}
+
+.comment-input {
+	height: 120px;
+	min-height: 120px;
+	width: 100%;
+	resize: vertical;
+	outline: none;
+	padding: 5px 10px;
+	border: 1px solid #888;
+	border-radius: 2px;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+.add-comment-button {
+	align-self: flex-end;
+	margin-top: 10px;
+}
+
+.primary-button {
+	background: hsl(15, 100%, 50%);
+	outline: none;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 2px;
+	color: #FFF;
+	cursor: pointer;
+	transition: background 0.2s ease-in-out;
+	font-size: 14px;
+}
+
+.primary-button:hover {
+	background: hsl(15, 100%, 58%);
+}
+
+.primary-button:disabled {
+	background: hsl(15, 0%, 50%);
+	cursor: default;
+}
+
+.replies {
+	margin-left: 40px;
+}
+
+.comment .details {
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 15px;
+}
+
+.comment .byline{
+	color: #666;
+	font-size: 13px;
+}
+
+.comment .comment-content {
+	margin: 0;
+	font-size: 14px;
+}
+
+.comment-list {
+	background: #f5f5f5;
+	margin-top: 20px;
+	padding: 20px 10px;
+	border-radius: 3px;
+}
+
+.reply-form {
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+	margin: 0 0 10px 15px;
+}
+
+.reply-input {
+	height: 60px;
+	resize: none;
+	border-radius: 2px;
+	border: 1px solid #888;
+	line-height: 1.5;
+	font-size: 14px;
+	padding: 2px 5px;
+	outline: none;
+	color: #333;
+}
+
+.reply-button {
+	align-self: flex-end;
+	padding: 5px 10px;
+	font-size: 12px;
+}
+
+.show-reply-form-button {
+	color: #555;
+	font-weight: 500;
+	cursor: pointer;
+	margin-left: 2px;
+}
+
+.show-reply-form-button:hover {
+	text-decoration: underline;
+}
+
+.text-button {
+	background: transparent;
+	color: hsl(15, 100%, 50%);
+	border: none;
+	outline: none;
+	padding: 10px 15px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.cancel-reply-button {
+	align-self: flex-end;
+	padding: 5px 10px;
+	font-size: 12px;
+}
+
+.reply-buttons-container {
+	display: flex;
+	align-self: center;
+	justify-content: flex-end;
+	align-self: flex-end;
+	margin-top: 5px;
+}
+
+.story-content {
+	margin-top: 20px;
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+.comments-link {
+	text-decoration: none;
+	margin-left: 4px;
+}
+
+.login-form, .signup-form {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	max-width: 400px;
+	background: #F5F5F5;
+	width: calc(100% - 20px);
+	margin: 50px auto;
+	border-radius: 2px;
+}
+
+.text-input {
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	padding: 10px;
+	font-size: 15px;
+	outline: none;
+}
+
+.login-form .password-input,
+.signup-form .password-input {
+	margin-top: 10px;
+}
+
+.login-button, .signup-button {
+	margin-top: 15px;
+}
+
+.sort-options {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 15px 10px;
+	display: flex;
+	align-items: center;
+}
+
+.sort-option + .sort-option {
+	margin-left: 15px;
+}
+
+.sort-option {
+	font-size: 15px;
+	cursor: pointer;
+	border-bottom: 3px solid transparent;
+}
+
+.sort-option a {
+	text-decoration: none;
+}
+
+.sort-option.active {
+	border-bottom-color: hsl(15, 100%, 50%);
+}
+
+.error-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+}
+
+.error-page h1 {
+	font-size: 80px;
+	margin: 0;
+}
+
+.error-page p {
+	margin: 0;
+	color: #555;
+	font-size: 20px;
+}
+
+.pagination-links {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30px;
+}
+
+.pagination-links a {
+	text-decoration: none;
+	color: #333;
+}
+
+.pagination-links a + a:before {
+	content: '|';
+	display: inline-block;
+	margin: 0 10px;
+}
+
+.button-group {
+	display: flex;
+	align-items: stretch;
+	margin-top: 10px;
+	border: 1px solid #f2f2f2;
+	border-radius: 2px;
+}
+
+.button-group .button {
+	background: #FFF;
+	color: hsl(15, 5%, 50%);
+	outline: none;
+	padding: 5px 15px;
+	border: none;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 500;
+	transition: all 0.2s ease-in-out;
+	flex: 1;
+	border-bottom: 2px solid transparent;
+}
+
+.button-group.disabled .button {
+	cursor: default;
+}
+
+.button-group:not(.disabled) .button:hover {
+	background: hsl(15, 90%, 90%);
+}
+
+.button-group .button.active {
+	background: hsl(15, 90%, 85%);
+	color: hsl(15, 60%, 40%);
+	border-bottom: 2px solid hsl(15, 60%, 40%);
+}
+
+.button-group.disabled .button.active {
+	background: hsl(15, 80%, 90%);
+	color: hsl(15, 20%, 50%);
+	border-bottom: 2px solid hsl(15, 20%, 50%);
+}
+
+.button-group .button:first-child {
+	border-radius: 2px 0 0 2px;
+}
+
+.button-group .button:last-child {
+	border-radius: 0 2px 2px 0;
+}
+
+.story-form {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	max-width: 400px;
+	background: #F5F5F5;
+	width: calc(100% - 20px);
+	margin: 50px auto;
+	border-radius: 2px;
+}
+
+.story-form .content-input {
+	margin-top: 10px;
+}
+
+.story-form .content-text-input {
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	padding: 10px;
+	font-size: 15px;
+	outline: none;
+	resize: vertical;
+	min-height: 150px;
+}
+
+.story-form .submit-button {
+	margin-top: 15px;
+}
+
+.loading-comments,
+.no-comments {
+	text-align: center;
+	display: block;
+	width: 100%;
+}
+
+.error-message {
+	color: hsl(0, 60%, 45%);
+	font-weight: 500;
+	display: block;
+	text-align: center;
+	padding: 10px;
+}
+
+.story-actions {
+	display: flex;
+	align-items: center;
+	margin-left: 8px;
+}
+
+.story-action-button {
+	color: #555;
+	font-weight: 500;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.story-action-button + .story-action-button:before {
+	content: '|';
+	display: inline-block;
+	margin: 0 4px;
+}
+
+.story-action-button:hover {
+	text-decoration: underline;
+}
+
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+}
+
+.loading-bar .fill {
+  background: hsl(33, 100%, 60%);
+  height: 100%;
+  transform: translate3d(-100%, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+</style>
