@@ -30,4 +30,4 @@ To build it and run it in production mode:
 1. Run `npm run build`
 2. Run `npm run start`
 
-# Soon: a blog series that shows you how to build this demo from scratch
+# Soon: a blog series that shows you how to build this demo from scratch (follow me on twitter [@tahazsh](https://twitter.com/tahazsh) for updates)
