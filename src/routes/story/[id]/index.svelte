@@ -14,6 +14,10 @@
   export let story
 </script>
 
+<svelte:head>
+  <title>{story.title}</title>
+</svelte:head>
+
 <div class="item-page page">
   <Story {story}/>
   {#if story.type === 'text'}

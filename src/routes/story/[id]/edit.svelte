@@ -19,4 +19,8 @@
   export let story
 </script>
 
+<svelte:head>
+  <title>Edit your story</title>
+</svelte:head>
+
 <StoryForm {story}/>

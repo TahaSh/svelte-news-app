@@ -24,6 +24,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Sign up</title>
+</svelte:head>
+
 <form
   class="signup-form"
   on:submit|preventDefault="{submit}"

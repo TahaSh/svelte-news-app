@@ -24,6 +24,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Login</title>
+</svelte:head>
+
 <form
   class="login-form"
   on:submit|preventDefault="{submit}"
